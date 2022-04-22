@@ -24,45 +24,47 @@ const app = new Vue({
   data: {
     active: 0,
 
-    new_task: '',
+    new_task: "",
 
     tasks: [
-         {
-        text: "cucinare",
-        done: true,
-      },
-      {
-        text: "cucinare",
-        done: true,
-      },
-      {
-        text: "fare i compiti",
-        done: false,
-      },
       {
         text: "studiare la documentazione",
         done: true,
       },
       {
+        text: "finire esercizio assegnato",
+        done: true,
+      },
+      {
+        text: "cucinare",
+        done: true,
+      },
+      {
+        text: "cenare",
+        done: false,
+      },
+      {
         text: "passare l'aspirapolvere",
         done: false,
-      }
+      },
     ],
   },
 
   methods: {
-
-    remove_task(index){
-        console.log('hai cliccato la x', index);
-        this.tasks.splice(index, 1)
+    remove_task(index) {
+      console.log("hai cliccato la x", index);
+      this.tasks.splice(index, 1);
     },
 
-    add_task(){
-        console.log('hai cliccato aggiungi');
-        console.log(this.new_task);
-        this.tasks.push(this.new_task);
-        /* this.new_task = ''; */
-    }
-
+    add_task() {
+      //console.log("hai cliccato aggiungi");
+      //console.log(this.new_task);
+      let newTask = {
+        text: this.new_task,
+        done: false,
+      };
+      this.tasks.push(newTask);
+      this.new_task = '';
+    },
   },
 });

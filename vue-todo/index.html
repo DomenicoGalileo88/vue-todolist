@@ -23,17 +23,17 @@
         <div class="container_task d-flex flex-column justify-content-center align-items-center">
 
             <div class="insert_task">
-                <input type="text" v-model="new_task">
+                <input type="text" v-model="new_task" @keydown.enter="add_task">
                 <button @click="add_task">Aggiungi</button>
             </div>
 
             <section>
-                <u>
-                    <li v-for="(task, index) in tasks" :class="task.done == false ? 'through' : '' ">
+                <ul>
+                    <li v-for="(task, index) in tasks" :class="task.done == true ? 'through' : '' ">
                         {{tasks[index].text}}
                         <i @click="remove_task(index)" class="fa-solid fa-circle-xmark ms-2"></i>
                     </li>
-                </u>
+                </ul>
 
             </section>
 
