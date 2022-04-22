@@ -1,0 +1,29 @@
+*{margin: 0;
+padding: 0;
+box-sizing: border-box;}
+
+body{
+    background-color: rgb(161, 194, 255);
+}
+
+.insert_task input, .insert_task button{
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.insert_task button{
+    background-color: whitesmoke;
+    margin-left: 0.5rem;
+}
+
+.checked{
+    background-color: rgb(73, 248, 152);
+}
+
+section{
+    background-color: whitesmoke;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
