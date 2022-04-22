@@ -23,8 +23,8 @@
         <div class="container_task d-flex flex-column justify-content-center align-items-center">
 
             <div class="insert_task">
-                <input type="text">
-                <button>Aggiungi</button>
+                <input type="text" v-model="new_task">
+                <button @click="add_task">Aggiungi</button>
             </div>
 
             <section>

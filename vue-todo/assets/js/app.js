@@ -24,7 +24,13 @@ const app = new Vue({
   data: {
     active: 0,
 
+    new_task: '',
+
     tasks: [
+         {
+        text: "cucinare",
+        done: true,
+      },
       {
         text: "cucinare",
         done: true,
@@ -49,6 +55,13 @@ const app = new Vue({
     remove_task(index){
         console.log('hai cliccato la x', index);
         this.tasks.splice(index, 1)
+    },
+
+    add_task(){
+        console.log('hai cliccato aggiungi');
+        console.log(this.new_task);
+        this.tasks.push(this.new_task);
+        /* this.new_task = ''; */
     }
 
   },
