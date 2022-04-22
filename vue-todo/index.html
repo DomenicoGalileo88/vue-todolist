@@ -31,6 +31,7 @@
                 <ul v-for="(task, index) in tasks" >
                     <li :class="task.done == false ? 'through' : '' ">
                         {{tasks[index].text}}
+                        <i @click="remove_task(index)" class="fa-solid fa-circle-xmark ms-2"></i>
                     </li>
                 </ul>
 

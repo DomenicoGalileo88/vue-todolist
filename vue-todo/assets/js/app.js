@@ -44,5 +44,12 @@ const app = new Vue({
     ],
   },
 
-  methods: {},
+  methods: {
+
+    remove_task(index){
+        console.log('hai cliccato la x', index);
+        this.tasks.splice(index, 1)
+    }
+
+  },
 });
