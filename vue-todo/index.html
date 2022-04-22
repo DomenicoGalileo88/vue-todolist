@@ -15,8 +15,33 @@
     
     <div id="app">
 
+        <div class="logo d-flex justify-content-center align-items-center m-3">
+            <img width="40" src="./assets/img/logo.png" alt="">
+            <h1 class="ms-2">Boolean</h1>
+        </div>
 
-        
+        <div class="container_task d-flex flex-column justify-content-center align-items-center">
+
+            <div class="insert_task">
+                <input type="text">
+                <button>Aggiungi</button>
+            </div>
+
+            <section>
+                <ul v-for="(task, index) in tasks" >
+                    <li :class="task.done == false ? 'through' : '' ">
+                        {{tasks[index].text}}
+                    </li>
+                </ul>
+
+            </section>
+
+
+
+        </div>
+        <!-- /.container_task -->
+
+
     </div>
 
 

@@ -18,16 +18,31 @@ Stampare all'interno di una lista, un item per ogni todo. Se la proprietà done 
 2- cliccando sul testo dell'item, invertire il valore della proprietà done del todo corrispondente (se done era uguale a false, impostare true e viceversa)
 */
 
-const app = new Vue (
-    {
-        el: '#app',
+const app = new Vue({
+  el: "#app",
 
-        data:{
+  data: {
+    active: 0,
 
-        },
+    tasks: [
+      {
+        text: "cucinare",
+        done: true,
+      },
+      {
+        text: "fare i compiti",
+        done: false,
+      },
+      {
+        text: "studiare la documentazione",
+        done: true,
+      },
+      {
+        text: "passare l'aspirapolvere",
+        done: false,
+      }
+    ],
+  },
 
-        methods:{
-
-        }
-    }
-)
+  methods: {},
+});

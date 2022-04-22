@@ -2,3 +2,22 @@
 padding: 0;
 box-sizing: border-box;}
 
+body{
+    background-color: antiquewhite;
+}
+
+.insert_task input, .insert_task button{
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.insert_task button{
+    background-color: coral;
+    margin-left: 0.5rem;
+}
+
+.through{
+    text-decoration: line-through;
+}
