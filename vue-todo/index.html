@@ -30,7 +30,7 @@
             <section>
                 <ul>
                     <li v-for="(task, index) in tasks" :class="task.done == true ? 'through' : '' ">
-                        {{tasks[index].text}}
+                        <span @click="change_done(index)">{{tasks[index].text}}</span>
                         <i @click="remove_task(index)" class="fa-solid fa-circle-xmark ms-2"></i>
                     </li>
                 </ul>

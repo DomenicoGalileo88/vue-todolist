@@ -66,5 +66,15 @@ const app = new Vue({
       this.tasks.push(newTask);
       this.new_task = '';
     },
-  },
+
+    change_done(i){
+        console.log('hai cliccato sul text', i);
+        if (this.tasks[i].done === false) {
+            this.tasks[i].done = true;
+        } else if (this.tasks[i].done === true){
+            this.tasks[i].done = false;
+        };
+    }
+
+  }
 });
