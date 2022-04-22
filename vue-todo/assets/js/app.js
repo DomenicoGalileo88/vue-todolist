@@ -63,8 +63,11 @@ const app = new Vue({
         text: this.new_task,
         done: false,
       };
-      this.tasks.push(newTask);
-      this.new_task = '';
+      if (newTask.text.length > 0) {
+          this.tasks.push(newTask);
+          this.new_task = "";
+      }
+      /* console.log(newTask.text.length); */
     },
 
     change_done(i){

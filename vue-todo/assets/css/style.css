@@ -21,3 +21,8 @@ body{
 .through{
     text-decoration: line-through;
 }
+
+section{
+    background-color: rgba(252, 143, 104, 0.774);
+    border-radius: 1rem;
+}
