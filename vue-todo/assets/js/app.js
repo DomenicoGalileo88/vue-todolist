@@ -52,7 +52,7 @@ const app = new Vue({
 
   methods: {
     remove_task(index) {
-      console.log("hai cliccato la x", index);
+      //console.log("hai cliccato la x", index);
       this.tasks.splice(index, 1);
     },
 
@@ -71,7 +71,7 @@ const app = new Vue({
     },
 
     change_done(i){
-        console.log('hai cliccato sul text', i);
+        //console.log('hai cliccato sul text', i);
         if (this.tasks[i].done === false) {
             this.tasks[i].done = true;
         } else if (this.tasks[i].done === true){
