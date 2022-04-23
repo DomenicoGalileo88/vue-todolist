@@ -23,6 +23,7 @@
             <img width="40" src="./assets/img/logo.png" alt="">
             <h1 class="ms-2">Boolean</h1>
         </div>
+        <!-- /.logo -->
 
         <div class="container_task d-flex flex-column justify-content-center align-items-center">
 
@@ -30,6 +31,7 @@
                 <input type="text" v-model="new_task" @keydown.enter="add_todo_list">
                 <button @click="add_todo_list" >Aggiungi</button>
             </div>
+            <!-- /.insert_task -->
 
             <div class="d-flex todo_list" v-if="tasks.length > 0 || completed.length > 0 || trashed.length > 0">
 
@@ -43,6 +45,7 @@
                         </li>
                     </ul>
                 </section>
+                <!-- /.todo -->
 
                 <section class="completed">
                     <ul class="list-unstyled p-2 bg-info rounded-3 m-1">
@@ -54,6 +57,7 @@
                         </li>
                     </ul>
                 </section>
+                <!-- /.completed -->
 
                 <section class="deleted">
                     <ul class="list-unstyled p-2 bg-info rounded-3 m-1">
@@ -65,12 +69,12 @@
                         </li>
                     </ul>
                 </section>
+                <!-- /.deleted -->
 
             </div>
+            <!-- /.todo_list -->
 
             <p v-else>Sono libero oggi!! 🥳</p>
-
-
 
         </div>
         <!-- /.container_task -->

@@ -1,21 +1,25 @@
 /* 
-Descrizione:
-Rifare l'esercizio della to do list. Questa volta però ogni todo sarà un oggetto, formato da due proprietà:
-text, una stringa che indica il testo del todo
-done, un booleano (true/false) che indica se il todo è stato fatto oppure no*/
+DESCRIZIONE:
+## Istruzioni
+Create una todo list usando VueJS.
+Potete dare sfogo alla creativitá e per quanto riguarda l'HTML e il CSS.
+Se non sapere che fare, di seguito trovate uno screenshot.
 
-/*MILESTONE 1
-Stampare all'interno di una lista, un item per ogni todo. Se la proprietà done è uguale a true, visualizzare il testo del todo sbarrato.*/
+Funzionalitá:
+- La nostra todo list avrá alcune tasks di default predefinite
+- L'utente puó inserire nuove tasks
+- Cliccando sulla "X" l'utente puó cancellare una task
+- Se non ci sono piu task nella lista, mostrate un messaggio tipo "Nulla da fare"
+- L'utente vuole poter indicare che la task é stata completata (con un icona cliccabile)
+Quando l'utente inserisce una task ha due modi per salvarla: o preme il pulsante add o preme il taso Enter della tastiera.
+Attenzione: l'utente non deve inserire tasks vuote ma almeno un tot di caratteri.
 
-/*MILESTONE 2
- Visualizzare a fianco ad ogni item ha una "x": cliccando su di essa, il todo viene rimosso dalla lista.*/
-
-/*MILESTONE 3
- Predisporre un campo di input testuale e un pulsante "aggiungi": cliccando sul pulsante, il testo digitato viene letto e utilizzato per creare un nuovo todo, che quindi viene aggiunto alla lista dei todo esistenti.*/
-
-/* Bonus:
-1- oltre al click sul pulsante, intercettare anche il tasto ENTER per aggiungere il todo alla lista
-2- cliccando sul testo dell'item, invertire il valore della proprietà done del todo corrispondente (se done era uguale a false, impostare true e viceversa)
+## Bonus-extra (opzionale)
+- Quando una task é stata completa allora l'utente vuole che venga inserita in un'altra colonna tipo "tasks completate"
+- se una task é stata marcata come completa per sbaglio allora vuole poterla rimettere nella todo list (cliccando su un altra icona)
+- ah non é finita, dice che quando cancella una task non vuole che questa venga subito rimossa, ma vuole che resti visibile ma venga spostata in una colonna tipo "cestino"
+- si, l'utente é un rompi scatole, dice infine che vuole poter rimuovere tutte le tasks nel cestino cliccando su un pulsante tipo "svuota cestino"
+Il nostro utente per ora sembra non avere altre richieste ... ma chissá se dopo gli viene in mente che vuole anche poter rimettere una task cancellata nella lista di tasks da fare, magari l'ha cancellata per sbaglio...
 */
 
 const app = new Vue({
@@ -56,6 +60,10 @@ const app = new Vue({
   },
 
   methods: {
+    /**
+     * Cambia il valore di done da vero a falso e viceversa
+     * @param {index} i 
+     */
     change_done(i) {
       //console.log('hai cliccato sul text', i);
       if (this.tasks[i].done === false) {
@@ -64,7 +72,9 @@ const app = new Vue({
         this.tasks[i].done = false;
       }
     },
-
+    /**
+     * Aggiunge una task a todo premendo button aggiungi o enter dalla tastiera, solo se il numero dei caratteri è >= 4
+     */
     add_todo_list() {
       //console.log("hai cliccato aggiungi");
       //console.log(this.new_task);
@@ -78,7 +88,10 @@ const app = new Vue({
       }
       /* console.log(newTask.text.length); */
     },
-
+    /**
+     * Aggiunge la task a completed e la rimuove da todo
+     * @param {index} index
+     */
     add_completed(index) {
       let completedTask = {
         text: this.tasks[index].text,
@@ -88,7 +101,10 @@ const app = new Vue({
       this.completed.push(completedTask);
       this.tasks.splice(index, 1);
     },
-
+    /**
+     * Sposta la task dal completed a todo
+     * @param {index} index
+     */
     return_todo_completed(index) {
       //console.log('torna da dove sei venuto!!🤣');
       let return_task_completed = {
@@ -98,7 +114,10 @@ const app = new Vue({
       this.tasks.push(return_task_completed);
       this.completed.splice(index, 1);
     },
-
+    /**
+     * Aggiunge la task a trashed e la rimuove da todo
+     * @param {index} index
+     */
     add_trashed(index) {
       let trashedTask = {
         text: this.tasks[index].text,
@@ -108,7 +127,10 @@ const app = new Vue({
       this.trashed.push(trashedTask);
       this.tasks.splice(index, 1);
     },
-
+    /**
+     * Sposta la task dal trashed a todo
+     * @param {index} index
+     */
     return_todo_trashed(index) {
       //console.log('torna da dove sei venuto!!🤣');
       let return_task_trashed = {
@@ -118,10 +140,12 @@ const app = new Vue({
       this.tasks.push(return_task_trashed);
       this.trashed.splice(index, 1);
     },
-
+    /**
+     * Deleted all tasks
+     */
     remove_task() {
       console.log("hai cliccato la empy");
       this.trashed.splice("");
-    }
+    },
   },
 });
