@@ -64,10 +64,6 @@ const app = new Vue({
         this.tasks[i].done = false;
       }
     },
-    remove_task() {
-      console.log("hai cliccato la empy");
-      this.trashed.splice('');
-    },
 
     add_todo_list() {
       //console.log("hai cliccato aggiungi");
@@ -122,5 +118,10 @@ const app = new Vue({
       this.tasks.push(return_task_trashed);
       this.trashed.splice(index, 1);
     },
+
+    remove_task() {
+      console.log("hai cliccato la empy");
+      this.trashed.splice("");
+    }
   },
 });

@@ -14,7 +14,7 @@ body{
 }
 
 .insert_task button{
-    background-color: whitesmoke;
+    background-color: #67ffab;
     margin-left: 0.5rem;
 }
 
@@ -23,11 +23,28 @@ body{
 }
 
 .todo_list{
+    font-family: 'Square Peg',
+    cursive;
     background-color: whitesmoke;
     border-radius: 1rem;
     padding: 0.5rem;
+    padding-bottom: 1rem;
 }
 
 section > ul{
     height: 100%;
+}
+
+.empty{
+    color: crimson;
+    text-decoration: underline;
+}
+
+h5{
+    font-size: 2rem;
+}
+
+span{
+    font-size: 1.5rem;
+    color: white;
 }
