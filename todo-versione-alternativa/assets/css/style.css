@@ -22,8 +22,12 @@ body{
     background-color: rgb(73, 248, 152);
 }
 
-section{
+.todo_list{
     background-color: whitesmoke;
     border-radius: 1rem;
     padding: 0.5rem;
+}
+
+section > ul{
+    height: 100%;
 }

@@ -23,21 +23,46 @@
         <div class="container_task d-flex flex-column justify-content-center align-items-center">
 
             <div class="insert_task">
-                <input type="text" v-model="new_task" @keydown.enter="add_task">
-                <button @click="add_task" >Aggiungi</button>
+                <input type="text" v-model="new_task" @keydown.enter="add_todo_list">
+                <button @click="add_todo_list" >Aggiungi</button>
             </div>
 
-            <section v-if="tasks.length > 0">
+            <div class="d-flex todo_list" v-if="tasks.length > 0 || completed.length > 0 || trashed.length > 0">
 
-                <ul>
-                    <li v-for="(task, index) in tasks" >
-                        <span :class="task.done == true ? 'checked' : '' " >{{tasks[index].text}}</span>
-                        <i @click="change_done(index)" class="fa-solid fa-circle-check ms-2"></i>
-                        <i @click="remove_task(index)" class="fa-solid fa-trash ms-2"></i>
-                    </li>
-                </ul>
+                <section class="todo">
+                    <ul class="list-unstyled p-1 bg-info rounded-3 m-1">
+                        <h5>Todo List</h5>
+                        <li v-for="(task, index) in tasks">
+                            <span>{{tasks[index].text}}</span>
+                            <i @click="add_completed(index)" class="fa-solid fa-circle-check ms-2"></i>
+                            <i @click="add_trashed(index)" class="fa-solid fa-trash ms-2"></i>
+                        </li>
+                    </ul>
+                </section>
 
-            </section>
+                <section class="completed">
+                    <ul class="list-unstyled p-1 bg-info rounded-3 m-1">
+                        <h5>Completed</h5>
+                    
+                        <li v-for="(complete, index) in completed">
+                            <span>{{completed[index].text}}</span>
+                            <i @click="return_todo_completed(index)" class="fa-solid fa-rotate-left"></i>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="deleted">
+                    <ul class="list-unstyled p-1 bg-info rounded-3 m-1">
+                        <h5>Trashed (<span @click="remove_task">Empty bin</span>)</h5>
+                
+                        <li v-for="(trash, index) in trashed">
+                            <span>{{trashed[index].text}}</span>
+                            <i  @click="return_todo_trashed(index)" class="fa-solid fa-trash-arrow-up"></i>
+                        </li>
+                    </ul>
+                </section>
+
+            </div>
 
             <p v-else>Sono libero oggi!! 🥳</p>
 
